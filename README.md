@@ -16,6 +16,7 @@ bundle install
 Edit `DemoUniversalLinks/ViewController.swift` to use your machine's name.
 
 ```diff
+// ViewController.swift
 - webView.load(URLRequest(url: URL(string: "http://<host name>:8080/redirect")!))
 + webView.load(URLRequest(url: URL(string: "http://mymachine:8080/redirect")!))
 ```
