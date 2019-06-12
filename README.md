@@ -22,7 +22,7 @@ Edit `DemoUniversalLinks/ViewController.swift` to use your machine's name.
 
 You can find your machine name in `System Preferences > Sharing`.
 
-![Machine name preferences](screenshots/machine-name.png]
+![Machine name preferences](screenshots/machine-name.png)
 
 ### Start the Server
 
