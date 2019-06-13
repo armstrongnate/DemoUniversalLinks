@@ -3,6 +3,23 @@
 Hits a local [Sinatra](http://sinatrarb.com) app to demonstrate handling a
 universal link from a http redirect.
 
+## TL;DR
+
+`WKWebView` will not launch universal links that occur as part of a http redirect.
+You must intercept the redirect and call `UIApplication.shared.open(url)` to
+trigger the universal link.
+
+```swift
+func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    if let url = navigationAction.request.url, url.host == "sso.canvaslms.com" {
+        UIApplication.shared.open(url)
+        decisionHandler(.cancel)
+        return
+    }
+    decisionHandler(.allow)
+}
+```
+
 ## Setup
 
 ### Install dependencies.
